@@ -1,0 +1,10 @@
+#PBS -N colltest
+#PBS -l nodes=4:ppn=8
+#PBS -j oe
+
+cd $PBS_O_WORKDIR
+
+mpiexec ./test
+
+
+
