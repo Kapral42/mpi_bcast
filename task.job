@@ -4,7 +4,16 @@
 
 cd $PBS_O_WORKDIR
 
-mpiexec ./test
-
+rm -rf logs
+mkdir logs
+cd logs
+for size in 8 16 32 64 128 256 512 ; do
+    make clean
+    make nbyte=$size
+    mpiexec ./test > vdg_bc_${size}.log 2>&1
+    make clean
+    make nbyte=$size mpi_bc=1
+    mpiexec ./test > mpi_bc_${size}.log 2>&1
+done
 
 

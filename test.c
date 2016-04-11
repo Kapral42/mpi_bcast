@@ -56,16 +56,16 @@ int main(int argc, char** argv) {
 #endif
     t += MPI_Wtime();
     if (world_size <= 128) {
-        printf("P:%d buff:", world_rank);
+        printf("P: %d buff:", world_rank);
         for (int i = 0; i < nbyte; i++) {
             printf(" %d", (int) buff[i]);
         }
         printf("\n");
     } else {
-        printf("P:%d buff: first(%d) last(%d)\n", world_rank,
+        printf("P: %d buff: first(%d) last(%d)\n", world_rank,
                (int) buff[0], (int) buff[nbyte - 1]);
     }
-    printf("P:%d Elapsed time time: %.6lf\n", world_rank, t);
+    printf("P: %d Elapsed time time: %.6lf\n", world_rank, t);
 
     free(buff);
     MPI_Barrier(MPI_COMM_WORLD);
