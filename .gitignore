@@ -2,3 +2,5 @@ test
 *.o
 *.pdf
 *.swp
+logs*
+.ropeproject/
