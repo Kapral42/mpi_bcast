@@ -55,7 +55,7 @@ int main(int argc, char** argv) {
     Bcast_vdg(buff, nbyte, MPI_CHAR, 0, MPI_COMM_WORLD);
 #endif
     t += MPI_Wtime();
-    if (world_size <= 128) {
+    if (world_size <= 16) {
         printf("P: %d buff:", world_rank);
         for (int i = 0; i < nbyte; i++) {
             printf(" %d", (int) buff[i]);
